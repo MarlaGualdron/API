@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
 import AutenticationRoute from './src/routes/user.route.js';
+import * as dotenv from 'dotenv' 
+dotenv.config()
 
 const app = express();
 const PORT = 3000;

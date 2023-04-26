@@ -1,6 +1,7 @@
 import express from 'express';
 import { body } from 'express-validator';
 import { userRegistration } from '../controllers/userRegistration.js';
+import { userLogIn } from '../controllers/userLogIn.js';
 
 const authenticationRoute = express.Router();
 
@@ -17,5 +18,7 @@ authenticationRoute.post(
   ],
   userRegistration
 );
+authenticationRoute.post('/login', userLogIn)
+
 
 export default authenticationRoute;

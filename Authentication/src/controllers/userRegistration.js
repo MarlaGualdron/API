@@ -10,15 +10,19 @@ export const userRegistration = async (req, res) => {
       return res.status(422).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, email, password_confirmation } = req.body;
+    const { firstName, lastName, email, password } = req.body;
 
     const emailValidation = emailValidator(email);
 
     if (!emailValidation) {
       return res.status(400).send({ message: `Invalid email.` });
     }
+    const user = await userModel.find({ email: email}).exec();
+    if (user){
+        return res.status(400).send({ message: 'user already exists'})
+    }
 
-    const passwordHash = await bcrypt.hash(password_confirmation, 10);
+    const passwordHash = await bcrypt.hash(password, 10);
 
     const newUser = {
       firstName,

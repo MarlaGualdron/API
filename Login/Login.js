@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import LoginRoute from './src/routes/user.route.js';
 import * as dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({path: '../.env'});
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.LOGIN_PORT;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

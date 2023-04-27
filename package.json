@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API microservices",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd Login && npm install && cd ../Business && npm install",
+    "dev": "(./Login/node_modules/.bin/nodemon ./Login/Login.js) & (cd Business && ./node_modules/.bin/nodemon ./Business.js)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarlaGualdron/API.git"
+  },
+  "author": "Marla Gualdron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarlaGualdron/API/issues"
+  },
+  "homepage": "https://github.com/MarlaGualdron/API#readme",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

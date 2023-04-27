@@ -1,5 +1,4 @@
 import userModel from '../models/user.js';
-import { emailValidator } from '../utils/utils.js';
 import bcrypt from "bcrypt";
 import { validationResult } from 'express-validator';
 
@@ -10,16 +9,15 @@ export const userRegistration = async (req, res) => {
       return res.status(422).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, email, password } = req.body;
+    const { firstName, lastName, email, password, password_confirmation } = req.body;
 
-    const emailValidation = emailValidator(email);
-
-    if (!emailValidation) {
-      return res.status(400).send({ message: `Invalid email.` });
+    if (password !== password_confirmation) {
+      return res.status(400).send({ message: `Passwords do not match.` });
     }
-    const user = await userModel.find({ email: email}).exec();
+    
+    const user = await userModel.findOne({ email: email}).exec();
     if (user){
-        return res.status(400).send({ message: 'user already exists'})
+        return res.status(400).send({ message: 'user email already exists'})
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
@@ -33,7 +31,7 @@ export const userRegistration = async (req, res) => {
 
     const userCreated = await userModel.create(newUser);
 
-    return res.status(201).send({ message: 'User created.', data: userCreated });
+    return res.status(201).send({ message: 'User created.', data: {firstName, lastName, email} });
   } catch (err) {
     return res.status(500).send({
       message: `Something has gone wrong with the server. Please contact us if the problem persists.`,

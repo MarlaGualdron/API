@@ -1,10 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-
-import AutenticationRoute from './src/routes/user.route.js';
-import * as dotenv from 'dotenv' 
-dotenv.config()
+import LoginRoute from './src/routes/user.route.js';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT;
@@ -15,12 +14,12 @@ app.use(bodyParser.json());
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('MongoDB connected! Authenticationº');
+    console.log('Login - MongoDB connected!');
   })
   .catch((err) => console.log(err));
 
-app.use('/users', AutenticationRoute);
+app.use('/users', LoginRoute);
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  console.log(`Login - Server is listening on port ${PORT}`);
 });

@@ -1,12 +1,12 @@
 {
-  "name": "Authentication",
+  "name": "Login",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Login.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ../Authentication/Authentication.js"
+    "dev": "nodemon ./Login.js"
   },
   "keywords": [],
   "author": "",

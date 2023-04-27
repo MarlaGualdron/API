@@ -2,11 +2,11 @@
   "name": "Business",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Business.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ../Business/Business.js"
+    "dev": "nodemon ./Business.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.5",
     "mongoose-paginate-v2": "^1.7.1",
     "nodemon": "^2.0.22"

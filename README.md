@@ -18,3 +18,6 @@ LOGIN_PORT=3000
 BUSINESS_PORT=3001
 BUSINESS_URL=http://127.0.0.1:3001
 ```
+[Postman Collection](https://www.postman.com/marlagualdron/workspace/microservice/collection/13084314-43cea240-84c6-40c0-9e56-3abb1e02cb01?action=share&creator=13084314)
+
+Enjoy :)

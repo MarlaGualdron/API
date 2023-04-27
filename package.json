@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd Login && npm install && cd ../Business && npm install",
-    "dev": "(./Login/node_modules/.bin/nodemon ./Login/Login.js) & (cd Business && ./node_modules/.bin/nodemon ./Business.js)"
+    "dev": "(./Login/node_modules/.bin/nodemon ./Login/Login.js) & (cd Business && ./node_modules/.bin/nodemon ./Business.js)",
+    "start": "(node ./Login/Login.js) & (cd Business && node ./Business.js)"
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,6 @@ import userRoute from './src/routes/businness.route.js';
 import * as dotenv from 'dotenv' 
 dotenv.config({path: '../.env'})
 
-console.log("Business env:", process.env.BUSINESS_PORT, process.env.MONGO_URI)
 const app = express();
 const PORT = process.env.BUSINESS_PORT;
 
